@@ -27,6 +27,24 @@ services:
       - key: JWT_SECRET
         scope: RUN_TIME
         type: SECRET
+      - key: KEYBIN_API_URL
+        value: https://api.keybin.net
+      - key: KEYBIN_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: FX_API_URL
+        value: https://api.exchangerate.host/latest?base=EUR&symbols=CLP
+      - key: MLC_CLIENT_ID
+        value: "296927981421309"
+      - key: MLC_CLIENT_SECRET
+        scope: RUN_TIME
+        type: SECRET
+      - key: MLC_REDIRECT_URI
+        value: https://pandakey.games/api/ml-auth
+      - key: SITE_URL
+        value: https://pandakey.games
+      - key: API_URL
+        value: https://pandakey.games
 
 # 🌐 Domains
 domains:
