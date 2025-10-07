@@ -3,18 +3,32 @@
   "version": "1.0.0",
   "description": "🐼 Plataforma de venta de llaves de videojuegos",
   "private": true,
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  },
   "scripts": {
-    "dev": "docker-compose up -d",
-    "dev:logs": "docker-compose logs -f",
-    "build": "docker-compose build",
-    "start": "docker-compose up -d",
-    "stop": "docker-compose down",
-    "clean": "docker-compose down -v --rmi all",
+    "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:dev\"",
+    "build": "npm run frontend:build && npm run backend:build",
+    "start": "npm run backend:start",
     "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:start": "cd frontend && npm run start",
     "backend:dev": "cd backend && npm run dev",
-    "setup": "npm run setup:frontend && npm run setup:backend",
+    "backend:build": "cd backend && npm run build",
+    "backend:start": "cd backend && npm run start",
+    "setup": "npm install && npm run setup:frontend && npm run setup:backend",
     "setup:frontend": "cd frontend && npm install",
-    "setup:backend": "cd backend && npm install"
+    "setup:backend": "cd backend && npm install",
+    "test": "npm run frontend:test && npm run backend:test",
+    "frontend:test": "cd frontend && npm test",
+    "backend:test": "cd backend && npm test",
+    "lint": "npm run frontend:lint && npm run backend:lint",
+    "frontend:lint": "cd frontend && npm run lint",
+    "backend:lint": "cd backend && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   },
   "keywords": [
     "games",
@@ -22,11 +36,9 @@
     "store",
     "nextjs",
     "nodejs",
-    "mongodb"
+    "mongodb",
+    "digitalocean"
   ],
-  "author": "Tu Nombre",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "author": "OskarFate",
+  "license": "MIT"
 }
