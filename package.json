@@ -4,7 +4,7 @@
   "description": "🐼 Plataforma de venta de llaves de videojuegos",
   "private": true,
   "engines": {
-    "node": ">=18",
+    "node": ">=18.0.0",
     "npm": ">=8"
   },
   "scripts": {
@@ -15,15 +15,15 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "next": "14.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "mongoose": "^8.7.0",
+    "jsonwebtoken": "^9.0.2",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
-    "mongoose": "^8.19.1",
-    "next": "15.5.4",
     "next-auth": "^4.24.11",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2"
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
