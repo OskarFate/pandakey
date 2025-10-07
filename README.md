@@ -58,19 +58,36 @@ pandakey/
 
 ## 🌐 API Endpoints
 
+### 🎮 Games
 - `GET /api/health` - Health check
 - `GET /api/games` - Listar juegos
 - `GET /api/games/[id]` - Obtener juego por ID
 - `POST /api/games` - Crear juego (admin)
+
+### 🔐 Authentication
 - `POST /api/auth/login` - Iniciar sesión
 - `POST /api/auth/register` - Registrarse
 
+### 🛒 MercadoLibre Integration
+- `GET /api/ml-auth/authorize` - Obtener URL de autorización ML
+- `GET /api/ml-auth` - Callback de autorización (redirect_uri)
+- `GET /api/ml-auth/status` - Estado de autorización actual
+- `POST /api/ml-auth` - Refresh token (action: "refresh")
+
 ## 🔧 Variables de entorno requeridas
 
+### 🗄️ Base de datos
 - `MONGODB_URI`: Conexión a MongoDB Atlas
+
+### 🔐 Autenticación
 - `JWT_SECRET`: Secreto para JWT tokens
 - `NEXTAUTH_SECRET`: Secreto para NextAuth.js
 - `NEXTAUTH_URL`: URL de la aplicación
+
+### 🛒 MercadoLibre (opcional)
+- `MLC_CLIENT_ID`: Client ID de tu aplicación ML
+- `MLC_CLIENT_SECRET`: Client Secret de tu aplicación ML
+- `MLC_REDIRECT_URI`: URL de callback (ej: https://tuapp.com/api/ml-auth)
 
 ## 🚀 Despliegue en DigitalOcean
 
