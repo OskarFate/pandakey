@@ -8,34 +8,41 @@
     "npm": ">=8"
   },
   "scripts": {
-    "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:dev\"",
-    "build": "npm run frontend:build && npm run backend:build",
-    "start": "npm run backend:start",
-    "frontend:dev": "cd frontend && npm run dev",
-    "frontend:build": "cd frontend && npm run build",
-    "frontend:start": "cd frontend && npm run start",
-    "backend:dev": "cd backend && npm run dev",
-    "backend:build": "cd backend && npm run build",
-    "backend:start": "cd backend && npm run start",
-    "setup": "npm install && npm run setup:frontend && npm run setup:backend",
-    "setup:frontend": "cd frontend && npm install",
-    "setup:backend": "cd backend && npm install",
-    "test": "npm run frontend:test && npm run backend:test",
-    "frontend:test": "cd frontend && npm test",
-    "backend:test": "cd backend && npm test",
-    "lint": "npm run frontend:lint && npm run backend:lint",
-    "frontend:lint": "cd frontend && npm run lint",
-    "backend:lint": "cd backend && npm run lint"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "mongoose": "^8.19.1",
+    "next": "15.5.4",
+    "next-auth": "^4.24.11",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5"
   },
   "keywords": [
     "games",
     "keys",
     "store",
     "nextjs",
-    "nodejs",
     "mongodb",
     "digitalocean"
   ],

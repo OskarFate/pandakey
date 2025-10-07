@@ -4,8 +4,7 @@
 
 ## 🏗️ Arquitectura
 
-- **Frontend**: `www.pandakey.games` - Next.js tienda
-- **Backend**: `api.pandakey.games` - Node.js/Express API
+- **Full-Stack**: `www.pandakey.games` - Next.js app con API routes
 - **Base de datos**: MongoDB Atlas
 - **Despliegue**: DigitalOcean App Platform
 
@@ -13,10 +12,18 @@
 
 ```
 pandakey/
-├── frontend/          # Next.js store (www.pandakey.games)
-├── backend/           # Node.js API (api.pandakey.games)
-├── .do/              # DigitalOcean App Platform config
-├── .env.example      # Environment variables template
+├── src/
+│   └── app/
+│       ├── api/          # API routes (backend)
+│       │   ├── games/    # Games endpoints
+│       │   ├── auth/     # Authentication
+│       │   └── health/   # Health check
+│       ├── globals.css   # Estilos globales
+│       ├── layout.tsx    # Layout principal
+│       └── page.tsx      # Página de inicio
+├── .do/app.yaml         # DigitalOcean config
+├── .env.example         # Variables de entorno
+├── package.json         # Next.js único
 └── README.md
 ```
 
@@ -30,13 +37,13 @@ pandakey/
 
 2. **Configurar variables de entorno**:
    ```bash
-   cp .env.example .env
-   # Editar .env con tus valores
+   cp .env.example .env.local
+   # Editar .env.local con tus valores
    ```
 
 3. **Instalar dependencias**:
    ```bash
-   npm run setup
+   npm install
    ```
 
 4. **Ejecutar en desarrollo**:
@@ -46,29 +53,38 @@ pandakey/
 
 5. **Acceder a**:
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8080
+   - API Health: http://localhost:3000/api/health
+   - API Games: http://localhost:3000/api/games
 
-## 🌐 Despliegue en DigitalOcean
+## 🌐 API Endpoints
 
-El proyecto está configurado para desplegarse automáticamente en DigitalOcean App Platform:
+- `GET /api/health` - Health check
+- `GET /api/games` - Listar juegos
+- `GET /api/games/[id]` - Obtener juego por ID
+- `POST /api/games` - Crear juego (admin)
+- `POST /api/auth/login` - Iniciar sesión
+- `POST /api/auth/register` - Registrarse
 
-- **Tienda**: www.pandakey.games
-- **API**: api.pandakey.games
+## 🔧 Variables de entorno requeridas
 
-### Variables de entorno requeridas:
 - `MONGODB_URI`: Conexión a MongoDB Atlas
 - `JWT_SECRET`: Secreto para JWT tokens
 - `NEXTAUTH_SECRET`: Secreto para NextAuth.js
+- `NEXTAUTH_URL`: URL de la aplicación
+
+## 🚀 Despliegue en DigitalOcean
+
+El proyecto está optimizado para DigitalOcean App Platform con una sola aplicación Next.js que maneja frontend y backend.
 
 ## 📋 Roadmap
 
-- [x] ✅ Infraestructura inicial
-- [x] ✅ Frontend Next.js configurado
-- [x] ✅ Backend Node.js/Express
-- [x] ✅ Configuración DigitalOcean
-- [ ] 🗄️ Modelos de base de datos
-- [ ] 🔐 Autenticación completa
-- [ ] � Sistema de pagos
+- [x] ✅ Infraestructura Next.js simplificada
+- [x] ✅ API routes configuradas
+- [x] ✅ Configuración DigitalOcean optimizada
+- [ ] 🗄️ Integración MongoDB Atlas
+- [ ] 🔐 Autenticación completa con NextAuth
+- [ ] 🎨 UI completa para la tienda
+- [ ] 💳 Sistema de pagos
 - [ ] 🚀 Despliegue en producción
 
 ---
